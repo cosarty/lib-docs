@@ -28,7 +28,15 @@ export default defineConfig({
       md.use(demoBlock);
     },
   },
-  vite: {},
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler', // or "modern"
+        },
+      },
+    },
+  },
   cleanUrls: true,
   metaChunk: true, // 缓存元数据
   lastUpdated: true, // 显示git 的最后更新时间
