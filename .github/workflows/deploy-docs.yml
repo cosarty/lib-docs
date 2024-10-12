@@ -36,7 +36,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_SERVER_ACCESS_TOKEN }}
           ARGS: "-avz --delete"
-          SOURCE: "libs/.vite/dist/"
+          SOURCE: "libs/.vitepress/dist/"
           REMOTE_HOST: ${{ secrets.ALIYUN_SERVER_HOST }}
           REMOTE_USER: root
           TARGET: /home/admin/deploy/lib-docs/
