@@ -12,7 +12,7 @@ hero:
       link: /docs/functions
     - theme: alt
       text: Github
-      link: https://github.com/cosarty
+      link: https://github.com/cosarty/lib-docs
   image:
     src: /images/logo.png
     alt: Lib
