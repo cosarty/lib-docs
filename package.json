@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "vitepress": "^1.3.4"
+  },
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev libs",
+    "docs:build": "vitepress build libs",
+    "docs:preview": "vitepress preview libs"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@types/markdown-it": "^14.1.2",
+    "@vueuse/core": "^11.1.0",
+    "element-plus": "^2.8.4",
+    "sass": "^1.79.4",
+    "vue": "^3.5.11"
+  }
+}
