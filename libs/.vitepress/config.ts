@@ -6,6 +6,7 @@ export default defineConfig({
   title: '自用工具库',
   description: '柠檬的自用工具库',
   srcDir: './src',
+  lang: 'zh-CN',
   markdown: {
     container: {
       tipLabel: '提示',
@@ -42,9 +43,19 @@ export default defineConfig({
   lastUpdated: true, // 显示git 的最后更新时间
   themeConfig: {
     logo: '/images/logo.png',
-    // lastUpdatedText:'',
     nav: navbar,
-
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
+    editLink: {
+      pattern: 'https://github.com/cosarty/lib-docs/edit/master/libs/src/:path',
+      text: '编辑此页面'
+    },
+    lastUpdatedText: '最后更新',
+    sidebarMenuLabel:'菜单',
+    returnToTopLabel:'返回顶部',
+    darkModeSwitchLabel:'主题切换',
     sidebar,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cosarty/lib-docs' },
