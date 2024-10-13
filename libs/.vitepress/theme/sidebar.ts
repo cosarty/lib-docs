@@ -21,8 +21,8 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/docs/tools/regexp',
     },
     {
-      text: 'saas工具集合',
-      link: '/docs/tools/saas-tools',
+      text: 'sass工具集合',
+      link: '/docs/tools/sass-tools',
     },
   ],
 };

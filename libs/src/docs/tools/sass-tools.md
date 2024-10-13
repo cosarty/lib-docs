@@ -1,4 +1,4 @@
-# saas 工具集合
+# sass 工具集合
 
 `Sass` 是一款强化 `CSS` 的辅助工具（即 `CSS` 预处理器或 `CSS` 预编译语言），它在 `CSS` 语法的基础上增加了变量 (`variables`)、嵌套 (`nested rules`)、混合 (`mixins`)、导入 (`inline imports`) 等高级功能，这些拓展令 `CSS` 更加强大与优雅。
 
