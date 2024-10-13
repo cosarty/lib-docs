@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 开始
-      link: /docs/functions
+      link: /docs/tools/functions
     - theme: alt
       text: Github
       link: https://github.com/cosarty/lib-docs
@@ -21,12 +21,14 @@ features:
   - title: 最佳实践
     icon: 🎊
     details: 优化项目中的开发体验，提高开发效率
-    linkText: 前往
     link: /docs/practices/storage
+    linkText: 前往
 
-  - title: 函数集合
+  - title: 工具集
     icon: 🧮
-    details: 一些工具函数的收集
+    details: 一些好用的技巧收集，涵盖正则、函数、样式等多维度工具集合
+    link: /docs/tools/functions
+    linkText: 前往
 
   - title: 动画
     icon: 🍺

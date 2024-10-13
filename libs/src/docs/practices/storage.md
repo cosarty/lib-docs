@@ -1,4 +1,7 @@
-# useStorage
+# Storage
+
+封装一个高可用的 localStorage 的操作方式，支持`过期时间`的设置
+
 
 <DemoBlock src="practices/storage.ts" >
 

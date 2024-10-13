@@ -7,6 +7,24 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/docs/practices/storage',
     },
   ],
+  '/docs/tools': [
+    {
+      text: '函数',
+      link: '/docs/tools/functions',
+    },
+    {
+      text: 'npm工具库',
+      link: '/docs/tools/tools',
+    },
+    {
+      text: '正则表达式',
+      link: '/docs/tools/regexp',
+    },
+    {
+      text: 'saas工具集合',
+      link: '/docs/tools/saas-tools',
+    },
+  ],
 };
 
 export default sidebar;

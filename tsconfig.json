@@ -2,11 +2,17 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
+    "baseUrl": ".",
     "moduleResolution": "bundler",
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
+    "paths": {
+      "@/*": [
+        "./libs/src/*"
+      ]
+    }
   },
   "exclude": [
     "node_modules",

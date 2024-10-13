@@ -42,6 +42,10 @@ export default defineConfig({
   metaChunk: true, // 缓存元数据
   lastUpdated: true, // 显示git 的最后更新时间
   themeConfig: {
+    outline: {
+      level: [2, 3], // 只显示 <h2> 和 <h3> 标题
+      label: '本页目录', // 将目录标题改为中文
+    },
     logo: '/images/logo.png',
     nav: navbar,
     docFooter: {
@@ -50,12 +54,12 @@ export default defineConfig({
     },
     editLink: {
       pattern: 'https://github.com/cosarty/lib-docs/edit/master/libs/src/:path',
-      text: '编辑此页面'
+      text: '编辑此页面',
     },
     lastUpdatedText: '最后更新',
-    sidebarMenuLabel:'菜单',
-    returnToTopLabel:'返回顶部',
-    darkModeSwitchLabel:'主题切换',
+    sidebarMenuLabel: '菜单',
+    returnToTopLabel: '返回顶部',
+    darkModeSwitchLabel: '主题切换',
     sidebar,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cosarty/lib-docs' },
