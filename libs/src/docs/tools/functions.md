@@ -62,7 +62,7 @@ obfuscateString({ str: '47382788239473894', visibleStart: 2, visibleEnd: 2 });
 
 ## 提取身份证信息
 
-[正则表达式所在位置](./regexp/#isIdCardregexp)
+[正则表达式所在位置](./regexp#isIdCardregexp)
 
 - #### 参数
 
