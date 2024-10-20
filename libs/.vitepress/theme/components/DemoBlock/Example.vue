@@ -22,15 +22,11 @@ onBeforeMount(() => {
   const modules = import.meta.glob(`../../../../**/*.vue`, {
     eager: true,
   });
-  console.log('modules: ', modules);
-  console.log('props: ', props);
 
   // 动态加载示列组件
-  for (const modulesKey in modules) {
-    const module = modules[modulesKey];
-    if (module) {
-      dynamicComponent.value = module.default;
-    }
+  const module = modules[props.path];
+  if (module) {
+    dynamicComponent.value = module.default;
   }
 });
 </script>

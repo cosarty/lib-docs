@@ -1,6 +1,6 @@
 <template>
   <div class="example">
-    <Example v-if="language === 'vue'" :path="codePath" />
+    <Example v-if="language === 'vue'" :path="demoPath" />
     <div v-else>
       <SourceCode><slot name="demo"></slot></SourceCode>
     </div>
@@ -43,10 +43,16 @@ import { useClipboard, useToggle } from '@vueuse/core';
 import { ElMessage } from 'element-plus';
 import SourceCode from './Code.vue';
 import { CaretTop, CopyDocument, View } from '@element-plus/icons-vue';
+import {
+  ElTooltip,
+  ElIcon,
+  ElCollapseTransition,
+  ElDivider,
+} from 'element-plus';
 
 const props = withDefaults(
   defineProps<{
-    codePath?: string;
+    demoPath?: string;
     language?: string;
     codeStr: string;
     src: string;

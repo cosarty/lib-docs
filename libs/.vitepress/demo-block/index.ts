@@ -74,12 +74,12 @@ export default (md: MarkdownIt) => {
     let demoRelativePath = '';
     if (source && fs.existsSync(sourcePath)) {
       codeStr = fs.readFileSync(sourcePath).toString();
-      demoRelativePath = relative(demoComponentsPath, sourcePath);
     } else {
       codeStr = 'src文件不存在';
     }
     if (demoSrc && fs.existsSync(demoPath)) {
       demoStr = fs.readFileSync(demoPath).toString();
+      demoRelativePath = relative(demoComponentsPath, demoPath);
     } else {
       demoStr = 'demo文件不存在';
     }
@@ -90,7 +90,7 @@ export default (md: MarkdownIt) => {
       /(\/?)>/,
       `codeStr="${encodeURIComponent(
         codeStr
-      )}"  codePath="${demoRelativePath}" language="${lang}">`
+      )}"  demoPath="${demoRelativePath}" language="${lang}">`
     );
 
     // 开头
@@ -109,7 +109,7 @@ export default (md: MarkdownIt) => {
 
     // default 插槽
     randerTemplate(state, codeStr, 'default', lang);
-    
+
     if (groups?.single === '/') {
       // 结尾
       state.push('html_block', '', 0).content = '</DemoBlock >\n';
