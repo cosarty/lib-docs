@@ -47,3 +47,12 @@
 .vp-doc div[class*='language-'] {
   @apply rounded-none m-0  #{!important};
 }
+
+.el-table table {
+  @apply my-0;
+}
+
+.el-table:not(.el-table--border) .el-table__cell {
+  border-right: var(--el-table-border) !important;
+}
+

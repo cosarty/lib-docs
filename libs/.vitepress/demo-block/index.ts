@@ -1,22 +1,22 @@
-import fs from 'fs';
-import path, { extname, join, relative } from 'path';
-import { fileURLToPath } from 'url';
-import type MarkdownIt from 'markdown-it';
-import type { StateBlock } from 'markdown-it/index.js';
+import fs from 'fs'
+import path, { extname, join, relative } from 'path'
+import { fileURLToPath } from 'url'
+import type MarkdownIt from 'markdown-it'
+import type { StateBlock } from 'markdown-it/index.js'
 
-const { resolve } = path;
+const { resolve } = path
 // @ts-ignore
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // demo组件的根路径
 const demoComponentsPath = resolve(
   __dirname,
-  '../theme/components/DemoBlock.vue'
-);
+  '../theme/components/DemoBlock.vue',
+)
 
 // 解析的目录
-const sourceRootPath = resolve(__dirname, '../../src');
+const sourceRootPath = resolve(__dirname, '../../src')
 /**
  * @name getDemoLabel
  * @desc 获取demo标签里的属性
@@ -27,24 +27,24 @@ const sourceRootPath = resolve(__dirname, '../../src');
 const getDemoLabel = (demo = '', attr?: any) => {
   let reg = attr
     ? new RegExp(`<DemoBlock[^>]+${attr}=['"]([^'"]+)['"]`)
-    : /<DemoBlock[\s\S]*?>([\s\S]*?)(<\/DemoBlock>|\/>)$/;
-  let match = demo.match(reg);
-  return match?.[1] || '';
-};
+    : /<DemoBlock[\s\S]*?>([\s\S]*?)(<\/DemoBlock>|\/>)$/
+  let match = demo.match(reg)
+  return match?.[1] || ''
+}
 
 const randerTemplate = (
   state: StateBlock,
   str: string,
   slotName: string,
-  lang: string
+  lang: string,
 ) => {
-  state.push('html_block', '', 0).content = `<template #${slotName} >\n`;
-  const demoToken = state.push('fence', 'code', 0);
-  demoToken.content = str;
-  demoToken.markup = '```';
-  demoToken.info = lang;
-  state.push('html_block', '', 0).content = '</template>\n';
-};
+  state.push('html_block', '', 0).content = `<template #${slotName} >\n`
+  const demoToken = state.push('fence', 'code', 0)
+  demoToken.content = str
+  demoToken.markup = '```'
+  demoToken.info = lang
+  state.push('html_block', '', 0).content = '</template>\n'
+}
 
 /**
  1.双标签就跳过插入
@@ -57,65 +57,66 @@ const randerTemplate = (
 export default (md: MarkdownIt) => {
   // 提高优先级
   md.block.ruler.before('fence', 'demo-block', (state, startLine) => {
-    const pos = state.bMarks[startLine] + state.tShift[startLine];
-    const max = state.eMarks[startLine];
-    let result = state.src.substring(pos, max);
+    const pos = state.bMarks[startLine] + state.tShift[startLine]
+    const max = state.eMarks[startLine]
+    let result = state.src.substring(pos, max)
 
-    const demoLabels = result.match(/<DemoBlock([\s\S]*?)(?<single>\/)?>/); // 获取所有的demo标签
-    if (!demoLabels) return false;
-    const { 0: demo, groups } = demoLabels;
+    const demoLabels = result.match(/<DemoBlock([\s\S]*?)(?<single>\/)?>/) // 获取所有的demo标签
+    if (!demoLabels) return false
+    const { 0: demo, groups } = demoLabels
 
-    let codeStr = ''; //demo中间字符串
-    let demoStr = ''; //demo中间字符串
-    const source = getDemoLabel(demo, 'src'); //demo src
-    const demoSrc = getDemoLabel(demo, 'demo'); //demo src
-    const sourcePath = join(sourceRootPath, source); //demo md的绝对路径
-    const demoPath = join(sourceRootPath, demoSrc);
-    let demoRelativePath = '';
+    let codeStr = '' //demo中间字符串
+    let demoStr = '' //demo中间字符串
+    const source = getDemoLabel(demo, 'src') //demo src
+    const demoSrc = getDemoLabel(demo, 'demo') //demo src
+    const sourcePath = join(sourceRootPath, source) //demo md的绝对路径
+    const demoPath = join(sourceRootPath, demoSrc)
+    let demoRelativePath = ''
     if (source && fs.existsSync(sourcePath)) {
-      codeStr = fs.readFileSync(sourcePath).toString();
+      codeStr = fs.readFileSync(sourcePath).toString()
     } else {
-      codeStr = 'src文件不存在';
+      codeStr = 'src文件不存在'
     }
     if (demoSrc && fs.existsSync(demoPath)) {
-      demoStr = fs.readFileSync(demoPath).toString();
-      demoRelativePath = relative(demoComponentsPath, demoPath);
+      demoStr = fs.readFileSync(demoPath).toString()
+      demoRelativePath = relative(demoComponentsPath, demoPath)
     } else {
-      demoStr = 'demo文件不存在';
+      demoStr = 'demo文件不存在'
     }
 
-    const lang = extname(sourcePath).replace('.', '');
+    const lang = extname(demoPath).replace('.', '')
 
     result = demo.replace(
       /(\/?)>/,
       `codeStr="${encodeURIComponent(
-        codeStr
-      )}"  demoPath="${demoRelativePath}" language="${lang}">`
-    );
+        codeStr,
+      )}"  demoPath="${demoRelativePath}" language="${lang}">`,
+    )
 
     // 开头
     state.push('html_block', '', 0).content =
-      result.at(-1) === '\n' ? result : result + '\n';
+      result.at(-1) === '\n' ? result : result + '\n'
 
     if (groups?.single === '/') {
       // code插槽
-      randerTemplate(
-        state,
-        demoStr,
-        'demo',
-        extname(demoPath).replace('.', '')
-      );
+      randerTemplate(state, demoStr, 'demo', lang)
     }
 
     // default 插槽
-    randerTemplate(state, codeStr, 'default', lang);
+    randerTemplate(
+      state,
+      codeStr,
+      'default',
+      extname(sourcePath).replace('.', ''),
+    )
 
     if (groups?.single === '/') {
       // 结尾
-      state.push('html_block', '', 0).content = '</DemoBlock >\n';
+      state.push('html_block', '', 0).content = '</DemoBlock >\n'
     }
 
-    state.line = startLine + 1;
-    return true;
-  });
-};
+    state.line = startLine + 1
+    return true
+  })
+}
+

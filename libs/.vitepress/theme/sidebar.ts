@@ -1,10 +1,14 @@
-import { DefaultTheme } from 'vitepress';
+import { DefaultTheme } from 'vitepress'
 
 const sidebar: DefaultTheme.Sidebar = {
   '/docs/practices': [
     {
       text: 'Storage',
       link: '/docs/practices/storage',
+    },
+    {
+      text: '横屏检测',
+      link: '/docs/practices/listenPortraitLandscape',
     },
   ],
   '/docs/tools': [
@@ -25,6 +29,7 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/docs/tools/sass-tools',
     },
   ],
-};
+}
 
-export default sidebar;
+export default sidebar
+

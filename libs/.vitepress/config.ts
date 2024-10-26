@@ -1,7 +1,8 @@
-import { defineConfig } from 'vitepress';
-import demoBlock from './demo-block';
-import navbar from './theme/navbar';
-import sidebar from './theme/sidebar';
+import { defineConfig } from 'vitepress'
+import demoBlock from './demo-block'
+import navbar from './theme/navbar'
+import sidebar from './theme/sidebar'
+import { resolve } from 'path'
 export default defineConfig({
   title: '自用工具库',
   description: '柠檬的自用工具库',
@@ -25,11 +26,18 @@ export default defineConfig({
       lazyLoading: true,
     },
     toc: { level: [1, 2] },
-    config: (md) => {
-      md.use(demoBlock);
+    config: md => {
+      md.use(demoBlock)
     },
   },
   vite: {
+    resolve: {
+      alias: {
+        // @ 替代为 src
+        // '@': resolve(__dirname, 'src'),
+        // @component 替代为 src/component
+      },
+    },
     css: {
       preprocessorOptions: {
         scss: {
@@ -69,4 +77,5 @@ export default defineConfig({
       copyright: '版权所有 © 2024 cosarty',
     },
   },
-});
+})
+
