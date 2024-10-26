@@ -1,6 +1,9 @@
 {
   "devDependencies": {
+    "@types/ali-oss": "^6.16.11",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.7.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
@@ -16,8 +19,11 @@
     "@element-plus/icons-vue": "^2.3.1",
     "@types/markdown-it": "^14.1.2",
     "@vueuse/core": "^11.1.0",
+    "ali-oss": "^6.21.0",
     "dayjs": "^1.11.13",
+    "echarts": "^5.5.1",
     "element-plus": "^2.8.4",
+    "lodash-es": "^4.17.21",
     "sass": "^1.79.4",
     "vue": "^3.5.11"
   }

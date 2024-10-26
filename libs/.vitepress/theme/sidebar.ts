@@ -3,12 +3,16 @@ import { DefaultTheme } from 'vitepress'
 const sidebar: DefaultTheme.Sidebar = {
   '/docs/practices': [
     {
-      text: 'Storage',
+      text: 'storage',
       link: '/docs/practices/storage',
     },
     {
       text: '横屏检测',
       link: '/docs/practices/listenPortraitLandscape',
+    },
+    {
+      text: 'ossClient',
+      link: '/docs/practices/aliOss',
     },
   ],
   '/docs/tools': [

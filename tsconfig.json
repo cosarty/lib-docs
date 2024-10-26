@@ -4,10 +4,12 @@
     "target": "esnext",
     "baseUrl": ".",
     "moduleResolution": "bundler",
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "noImplicitAny": false, // 是否在表达式和声明上有隐含的any类型时报错
     "paths": {
       "@/*": [
         "./libs/src/*"

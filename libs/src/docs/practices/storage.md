@@ -7,7 +7,7 @@
 
 <template #demo>
 
-```js
+```ts
 import createStorage from './storage'
 
 type StorageKeyType = {

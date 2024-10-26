@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import demoBlock from './demo-block'
 import navbar from './theme/navbar'
 import sidebar from './theme/sidebar'
-import { resolve } from 'path'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   title: '自用工具库',
   description: '柠檬的自用工具库',
@@ -45,6 +45,7 @@ export default defineConfig({
         },
       },
     },
+    plugins: [vueJsx()],
   },
   cleanUrls: true,
   metaChunk: true, // 缓存元数据
