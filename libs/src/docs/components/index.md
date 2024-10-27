@@ -12,13 +12,13 @@
 
 <DemoBlock  src="components/Echarts/demo.vue" demo="components/Echarts/demo.vue"/>
 
-## ElementUI Dialog 高级封装
+## ElementUI Dialog 封装
 
 <DemoBlock  src="components/Dialog/demo.vue" demo="components/Dialog/demo.vue"/>
 
-<!-- ## 抛物线 -->
+## 抛物线
 
-<!-- <DemoBlock  src="components/Parabolic/Parabolic.vue" demo="components/Parabolic/Parabolic.vue"/> -->
+<DemoBlock  src="components/Parabolic/Parabolic.vue" demo="components/Parabolic/Parabolic.vue"/>
 
 ## TriggerRay
 

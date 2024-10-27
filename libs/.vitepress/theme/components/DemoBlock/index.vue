@@ -1,8 +1,11 @@
 <template>
+<ClientOnly>
   <div class="example">
     <Example v-if="language === 'vue'" :path="demoPath" />
     <div v-else>
-      <SourceCode><slot name="demo"></slot></SourceCode>
+      <SourceCode>
+        <slot name="demo"></slot>
+      </SourceCode>
     </div>
     <ElDivider class="m-0" />
     <div class="op-btns">
@@ -23,11 +26,7 @@
       </SourceCode>
     </ElCollapseTransition>
     <Transition name="el-fade-in-linear">
-      <div
-        v-show="sourceVisible"
-        class="example-float-control"
-        @click="toggleSourceVisible(false)"
-      >
+      <div v-show="sourceVisible" class="example-float-control" @click="toggleSourceVisible(false)">
         <ElIcon :size="16">
           <CaretTop />
         </ElIcon>
@@ -35,6 +34,7 @@
       </div>
     </Transition>
   </div>
+</ClientOnly>
 </template>
 
 <script setup lang="ts">
@@ -88,15 +88,18 @@ const onCopy = async () => {
   margin: 15px 0 30px;
   border: 1px solid var(--border-color);
   border-radius: var(--el-border-radius-base);
+
   .m-0 {
     margin: 0;
   }
+
   .op-btns {
     padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     height: 2.5rem;
+
     .el-icon {
       &:hover {
         color: var(--text-color);
@@ -138,6 +141,7 @@ const onCopy = async () => {
     right: 0;
     bottom: 0;
     z-index: 10;
+
     span {
       font-size: 14px;
       margin-left: 10px;
