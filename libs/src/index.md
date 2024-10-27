@@ -33,4 +33,7 @@ features:
   - title: 动画
     icon: 🍺
     details: 一些高级动效以及一些特殊样式的记录
+    link: /docs/styles/MaskCollection
+    linkText: 前往
 ---
+

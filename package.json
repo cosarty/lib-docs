@@ -21,9 +21,11 @@
     "@vueuse/core": "^11.1.0",
     "ali-oss": "^6.21.0",
     "dayjs": "^1.11.13",
+    "decimal.js": "^10.4.3",
     "echarts": "^5.5.1",
     "element-plus": "^2.8.4",
     "lodash-es": "^4.17.21",
+    "pinyin-pro": "^3.25.0",
     "sass": "^1.79.4",
     "vue": "^3.5.11"
   }

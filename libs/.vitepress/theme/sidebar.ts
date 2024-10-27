@@ -21,10 +21,6 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/docs/tools/functions',
     },
     {
-      text: 'npm工具库',
-      link: '/docs/tools/tools',
-    },
-    {
       text: '正则表达式',
       link: '/docs/tools/regexp',
     },
