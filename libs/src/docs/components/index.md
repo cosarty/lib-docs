@@ -16,9 +16,9 @@
 
 <DemoBlock  src="components/Dialog/demo.vue" demo="components/Dialog/demo.vue"/>
 
-## 抛物线
+<!-- ## 抛物线 -->
 
-<DemoBlock  src="components/Parabolic/Parabolic.vue" demo="components/Parabolic/Parabolic.vue"/>
+<!-- <DemoBlock  src="components/Parabolic/Parabolic.vue" demo="components/Parabolic/Parabolic.vue"/> -->
 
 ## TriggerRay
 
