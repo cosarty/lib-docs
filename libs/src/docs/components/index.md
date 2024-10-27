@@ -12,7 +12,7 @@
 
 <DemoBlock  src="components/Echarts/demo.vue" demo="components/Echarts/demo.vue"/>
 
-## ElementUI Dialog 封装
+## ElementUI Dialog 高级封装
 
 <DemoBlock  src="components/Dialog/demo.vue" demo="components/Dialog/demo.vue"/>
 
