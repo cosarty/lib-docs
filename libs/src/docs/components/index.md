@@ -32,3 +32,7 @@
 
 <DemoBlock  src="components/TriggerRay/demo2.vue" demo="components/TriggerRay/demo2.vue"/>
 
+
+## 自定义Collapse
+
+<DemoBlock  src="components/Collapse/Collapse.vue" demo="components/Collapse/demo.vue"/>
