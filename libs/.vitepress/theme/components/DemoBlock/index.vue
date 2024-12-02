@@ -1,86 +1,92 @@
 <template>
-<ClientOnly>
-  <div class="example">
-    <Example v-if="language === 'vue'" :path="demoPath" />
-    <div v-else>
-      <SourceCode>
-        <slot name="demo"></slot>
-      </SourceCode>
-    </div>
-    <ElDivider class="m-0" />
-    <div class="op-btns">
-      <ElTooltip content="复制代码" :show-arrow="false">
-        <ElIcon :size="16" class="op-btn" @click="onCopy">
-          <CopyDocument />
-        </ElIcon>
-      </ElTooltip>
-      <ElTooltip content="查看源代码" :show-arrow="false">
-        <ElIcon :size="16" class="op-btn" @click="toggleSourceVisible()">
-          <View />
-        </ElIcon>
-      </ElTooltip>
-    </div>
-    <ElCollapseTransition>
-      <SourceCode v-show="sourceVisible">
-        <slot></slot>
-      </SourceCode>
-    </ElCollapseTransition>
-    <Transition name="el-fade-in-linear">
-      <div v-show="sourceVisible" class="example-float-control" @click="toggleSourceVisible(false)">
-        <ElIcon :size="16">
-          <CaretTop />
-        </ElIcon>
-        <span>隐藏源代码</span>
+  <div>
+    <ClientOnly>
+      <div class="example">
+        <Example v-if="language === 'vue'" :path="demoPath" />
+        <div v-else>
+          <SourceCode>
+            <slot name="demo"></slot>
+          </SourceCode>
+        </div>
+        <ElDivider class="m-0" />
+        <div class="op-btns">
+          <ElTooltip content="复制代码" :show-arrow="false">
+            <ElIcon :size="16" class="op-btn" @click="onCopy">
+              <CopyDocument />
+            </ElIcon>
+          </ElTooltip>
+          <ElTooltip content="查看源代码" :show-arrow="false">
+            <ElIcon :size="16" class="op-btn" @click="toggleSourceVisible()">
+              <View />
+            </ElIcon>
+          </ElTooltip>
+        </div>
+        <ElCollapseTransition>
+          <SourceCode v-show="sourceVisible">
+            <slot></slot>
+          </SourceCode>
+        </ElCollapseTransition>
+        <Transition name="el-fade-in-linear">
+          <div
+            v-show="sourceVisible"
+            class="example-float-control"
+            @click="toggleSourceVisible(false)"
+          >
+            <ElIcon :size="16">
+              <CaretTop />
+            </ElIcon>
+            <span>隐藏源代码</span>
+          </div>
+        </Transition>
       </div>
-    </Transition>
+    </ClientOnly>
   </div>
-</ClientOnly>
 </template>
 
 <script setup lang="ts">
-import Example from './Example.vue';
-import { useClipboard, useToggle } from '@vueuse/core';
-import { ElMessage } from 'element-plus';
-import SourceCode from './Code.vue';
-import { CaretTop, CopyDocument, View } from '@element-plus/icons-vue';
+import Example from './Example.vue'
+import { useClipboard, useToggle } from '@vueuse/core'
+import { ElMessage } from 'element-plus'
+import SourceCode from './Code.vue'
+import { CaretTop, CopyDocument, View } from '@element-plus/icons-vue'
 import {
   ElTooltip,
   ElIcon,
   ElCollapseTransition,
   ElDivider,
-} from 'element-plus';
+} from 'element-plus'
 
 const props = withDefaults(
   defineProps<{
-    demoPath?: string;
-    language?: string;
-    codeStr: string;
-    src: string;
+    demoPath?: string
+    language?: string
+    codeStr: string
+    src: string
   }>(),
   {
     language: 'vue',
-  }
-);
+  },
+)
 
-const [sourceVisible, toggleSourceVisible] = useToggle(false);
+const [sourceVisible, toggleSourceVisible] = useToggle(false)
 
 const { copy, isSupported } = useClipboard({
   source: decodeURIComponent(props.codeStr),
   read: false,
-});
+})
 
 // 复制代码
 const onCopy = async () => {
   if (!isSupported) {
-    ElMessage.error('复制失败');
+    ElMessage.error('复制失败')
   }
   try {
-    await copy();
-    ElMessage.success('已复制');
+    await copy()
+    ElMessage.success('已复制')
   } catch (e: any) {
-    ElMessage.error(e.message);
+    ElMessage.error(e.message)
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -153,3 +159,4 @@ const onCopy = async () => {
   }
 }
 </style>
+
