@@ -33,7 +33,7 @@
             @click="toggleSourceVisible(false)"
           >
             <ElIcon :size="16">
-              <CaretTop />
+              <CaretTop /> 
             </ElIcon>
             <span>隐藏源代码</span>
           </div>

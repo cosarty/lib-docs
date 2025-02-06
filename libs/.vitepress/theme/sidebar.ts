@@ -14,6 +14,10 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'ossClient',
       link: '/docs/practices/aliOss',
     },
+    {
+      text: 'idConverter',
+      link: '/docs/practices/idConverter',
+    },
   ],
   '/docs/tools': [
     {
