@@ -18,6 +18,10 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'idConverter',
       link: '/docs/practices/idConverter',
     },
+    {
+      text:'主题切换（Sass）',
+      link:'/docs/practices/themeChange(scss)'
+    }
   ],
   '/docs/tools': [
     {
@@ -33,6 +37,16 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/docs/tools/sass-tools',
     },
   ],
+  '/docs/styles': [
+    {
+      text:'遮罩层合集',
+      link:'/docs/styles/MaskCollection'
+    },
+    {
+      text:'按钮合集',
+      link:'/docs/styles/Buttons'
+    }
+  ]
 }
 
 export default sidebar
