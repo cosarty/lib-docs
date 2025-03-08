@@ -224,3 +224,43 @@ decimal([1, 2, 3], ['+', '-'], 2)
 
 </template>
 </DemoBlock>
+
+## 将 rgb 转 16 进制
+
+```ts
+const rgbToHex = (r, g, b) =>
+  '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+rgbToHex(0, 51, 255)
+```
+
+## 复制文本到剪切板
+
+```ts
+// 兼容
+const input = document.createElement('input')
+input.value = '复制内容'
+input.style.opacity = 0
+document.body.appendChild(input)
+input.select()
+// 执行复制命令并移除文本框
+document.execCommand('copy')
+document.body.removeChild(input)
+```
+
+## 生成随机 16 进制
+
+```ts
+const randomHex = () =>
+  `#${Math.floor(Math.random() * 0xffffff)
+    .toString(16)
+    .padEnd(6, '0')}`
+console.log(randomHex())
+```
+
+## 检测用户是否处于暗模式
+
+```ts
+const isDarkMode =
+  window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+console.log(isDarkMode) // Result: True or False
+```
