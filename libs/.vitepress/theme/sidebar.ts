@@ -21,7 +21,13 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text:'主题切换（Sass）',
       link:'/docs/practices/themeChange(scss)'
-    }
+    },
+    
+    {
+      text:'API密钥生成器',
+      link:'/docs/practices/apiKeyGenerator'
+    },
+
   ],
   '/docs/tools': [
     {
