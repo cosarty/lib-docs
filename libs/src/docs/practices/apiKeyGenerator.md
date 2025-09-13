@@ -8,7 +8,7 @@
 
 // 使用示例
 const masterKey = '这是一个非常复杂的主密钥，请妥善保管';
-const secondaryKey = '这是次级密钥，提供双重安全保障';
+const secondaryKey = '这是次级密钥，提供双重安全保障'; 
 
 // 创建密钥生成器实例
 const keyGenerator = new ApiKeyGenerator(masterKey, secondaryKey, {
